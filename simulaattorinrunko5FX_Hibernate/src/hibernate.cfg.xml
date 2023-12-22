@@ -1,0 +1,23 @@
+<hibernate-configuration>
+	<session-factory>
+		<!-- Käytä MySQL-tietokantaa ja MariaDB-palvelinta -->
+		<property name="hibernate.dialect"> org.hibernate.dialect.MySQL5Dialect</property>
+
+		<!-- Yhteyden perustiedot: -->
+		<!-- ajuri, palvelimen IP-osoite:portti, tietokannan nimi, käyttäjätunnus, salasana -->
+		<property name="hibernate.connection.driver_class">org.mariadb.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hypermarket</property>
+		<property name="hibernate.connection.username">olso</property>
+		<property name="hibernate.connection.password">olso</property>
+
+		<!-- Ekalla kerralla create, ja sitten kun kanta olemassa validate -->
+		<!-- Tuotantoversioissa -validate - älä anna Hibernaten enää muttaa taulurakennetta-->
+		<property name="hbm2ddl.auto">validate</property>
+
+		<!-- kun true, kaiuttaa kaikki SQL-lauseet stdout:iin -->
+		<property name="show_sql">true</property>
+
+		<!-- Kirjaa tähän mallitason DTO-oliot, pakkausnimet mukaan -->
+		<mapping class="simu.model.Tiedot1" />
+	</session-factory>
+</hibernate-configuration>
